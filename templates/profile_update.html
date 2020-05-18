@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load  crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block MainBodyContent %}
+
+    <div class="container">
+        <h3>Profile Update</h3>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form | crispy }}
+            {{ profile_form | crispy }}
+            <button class="btn btn-success btn-block">Update</button>
+        </form>
+
+        <div>
+            <a class="btn btn-danger" href="{% url 'ProfileView' %}">Back</a>
+            <a class="btn btn-primary" href="{% url 'DashboardView' %}">Home</a>
+        </div>
+    </div>
+
+{% endblock %}

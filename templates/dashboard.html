@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+    Dashboard
+{% endblock %}
+
+{% block MainBodyContent %}
+    <br>
+    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+    <a href="{% url 'password_change' %}" class="btn btn-dark">Change Password</a>
+    <a href="{% url 'ProfileView' %}" class="btn btn-primary">Profile</a>
+{% endblock %}

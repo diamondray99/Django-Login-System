@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>CMS</title>
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+	<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<script src="{% static 'js/index.js' %}"></script>
+</head>
+
+<body>
+
+<!-- ------------------------------------------------------Header------------------------------------------------------------ -->
+	<header id="headerNav">
+		<nav class="nav">
+			<li class="nav-item">
+				<a href="{% url 'index' %}">
+					<img onclick="" id="nav_home" src="{% static 'pics/students/home.png' %}" alt="Home">
+				</a>
+			</li>
+			<li class="nav-item">
+				<img onclick="showOnStudMain()" id="nav_back" src="{% static 'pics/students/back.png' %}"
+					alt="Back">
+			</li>
+		</nav>
+	</header>
+<!-- ------------------------------------------------------Main Index--------------------------------------------------------  -->
+	<div id="mainIndex">
+		<div class="container">
+			<h1><strong>College Management Software</strong></h1>
+		</div>
+		
+		<div class="row">
+			<div class="column">
+				
+				<div class="card" id="studMain" onclick="studMain()">
+					<img src="E:\Personal\projects\CMSP\static\pics\main\students.png" alt="Avatar">
+					<div class="container">
+						<h4><b>Students</b></h4>
+					</div>
+				</div>
+			
+			</div>
+		
+			<div class="column">
+				<a href="backOffice.html">
+					<div class="card">
+						<img src="E:\Personal\projects\CMSP\static\pics\main\backOffice.png" alt="Avatar">
+						<div class="container">
+							<h4><b>Back Office</b></h4>
+						</div>
+					</div>
+				</a>
+			</div>
+		
+			<div class="column">
+				<a href="TS.html">
+					<div class="card">
+						<img src="E:\Personal\projects\CMSP\static\pics\main\teachers.png" alt="Avatar">
+						<div class="container">
+							<h4><b>Teaching Staff</b></h4>
+						</div>
+					</div>
+				</a>
+			</div>
+		
+			<div class="column">
+				<a href="NTS.html">
+					<div class="card">
+						<img src="E:\Personal\projects\CMSP\static\pics\main\nonteaching.jpg" alt="Avatar">
+						<div class="container">
+							<h4><b>Non-Teach Staff</b></h4>
+						</div>
+					</div>
+				</a>
+			</div>
+		
+		</div>
+	</div>
+	
+<!-- ------------------------------------------------------Students Block---------------------------------------------- -->
+	<div id="studBlock">
+		<div class="container">
+			<h1><strong>Students Block</strong></h1>
+		</div>
+	
+		<div class="row">			
+			<div class="column" id="addStud" onclick="addStudForm()">
+				<div class="card">
+					<img src="E:\Personal\projects\CMSP\static\pics\students\addicon.png" alt="Avatar">
+					<div class="container">
+						<h4><b>Add Students</b></h4>
+					</div>
+				</div>
+				
+			</div>
+	
+			<div class="column" id="studProfile" onclick="StudProfForm()">	
+				<div class="card">
+					<img src="E:\Personal\projects\CMSP\static\pics\students\profileicon.png" alt="Avatar">
+					<div class="container">
+						<h4><b>Students Profile</b></h4>
+					</div>
+				</div>	
+			</div>
+	
+	
+			<div class="column" id="viewClass">
+	
+				<div class="card">
+					<img src="E:\Personal\projects\CMSP\static\pics\students\viewicon.png" alt="Avatar">
+					<div class="container">
+						<h4><b>View Class</b></h4>
+					</div>
+				</div>
+	
+			</div>
+	
+			<div class="column" id="studFees">
+	
+				<div class="card">
+					<img src="E:\Personal\projects\CMSP\static\pics\students\feeicon.png" alt="Avatar">
+					<div class="container">
+						<h4><b>Students Fees</b></h4>
+					</div>
+				</div>
+	
+			</div>
+	
+	
+			<div class="column" id="studAttendance">
+	
+				<div class="card">
+					<img src="E:\Personal\projects\CMSP\static\pics\students\attendanceicon.png" alt="Avatar">
+					<div class="container">
+						<h4><b>Students Attendance</b></h4>
+					</div>
+				</div>
+	
+			</div>
+			<div class="column" id="studTimeTable">
+			
+				<div class="card">
+					<img src="E:\Personal\projects\CMSP\static\pics\students\timetable.png" alt="Avatar">
+					<div class="container">
+						<h4><b>Class Timetable</b></h4>
+					</div>
+				</div>
+			
+			</div>
+	
+		</div>
+	</div>
+
+<!-- ----------------------------------------------------Add Students Form----------------------------------------------  -->
+	<div id="AddStudForm">
+		<div class="container" id="h1StudForm">
+			<h1>Add the Informations</h1>
+		</div>
+		
+		<div class="container" id="containerStudForm">
+			<form class="StudentInfo" action="" method="post">
+		        {% csrf_token %}
+				<div class="container" id="h2StudForm">
+					<h2><strong>Personal Info</strong></h2>
+				</div>
+				<div>
+					<label for="First Name">First Name : </label>
+					<input type="text" name="First Name" placeholder="First Name">
+					<br><br>
+					<label for="Middle Name">Middle Name : </label>
+					<input type="text" name="Middle Name" placeholder="Middle Name">
+					<br><br>
+					<label for="Last Name">Last Name : </label>
+					<input type="text" name="Last Name" placeholder="Last Name">
+					<br><br>
+					<label for="Address">Address : </label>
+					<input type="text" name="Address" placeholder="Address">
+					<br><br>
+					<label for="ID Proof">Adhaar Card :</label>
+					<input type="file" name="Adhaar">
+					<br><br>
+					
+					<label for="Birth Proof">Birth Certificate : </label>
+					<input type="file" name="Birth Certificate">
+					<br><br>
+				
+				
+		
+					<div class="container" id="h2">
+						<h2><strong>Parents Info</strong></h2>
+					</div>
+			
+					<label for="Father's Name">Father's Name : </label>
+					<input type="text" name="Father's Name" placeholder="Father's Name">
+					<br><br>
+					<label for="Father's Mobile No.">Father's Mobile No. : </label>
+					<input type="number" name="Father's Mobile No." placeholder="Father's Mobile No.">
+					<br><br>
+					<label for="Father's Occupation">Father's Occupation : </label>
+					<select id="F_Occupation">
+						<option value="Service">Service</option>
+						<option value="Business">Business</option>
+						<option value="Government Job">Government Job</option>
+						<option value="Others">Others</option>
+					</select>
+					<br><br>
+			
+			
+					<label for="Mother's Name">Mother's Name : </label>
+					<input type="text" name="Mother's Name" placeholder="Mother's Name">
+					<br><br>
+					<label for="Mother's Mobile No.">Mother's Mobile No. : </label>
+					<input type="number" name="Mother's Mobile No." placeholder="Mother's Mobile No.">
+					<br><br>
+					<label for="Mother's Occupation">Mother's Occupation : </label>
+					<select id="F_Occupation">
+						<option value="Service">Service</option>
+						<option value="Business">Business</option>
+						<option value="Government Job">Government Job</option>
+						<option value="Housewife">Housewife</option>
+						<option value="Others">Others</option>
+					</select>
+					<br><br>
+			
+					<div class="container" id="h2">
+						<h2><strong>Select Progarmme</strong></h2>
+						<br>
+						<div>
+							<select name="programme" id="progId">
+								<option value="science">Science</option>
+								<option value="commerce">Commerce</option>
+								<option value="arts">Arts</option>
+							</select>
+							<select name="class" id="classId">
+								<option value="fy">First Year</option>
+								<option value="sy">Second Year</option>
+							</select>
+						</div>
+			
+			
+						<div class="container" id="h2">
+							<h2><strong>Marksheet</strong></h2>
+						</div>
+						<label for="Score">Previous Year Score : </label>
+						<input type="number" name="Score" max="100">
+						<br><br>
+						<label for="marksheetUpload">Upload Marksheet : </label>
+						<input type="file" name="Marksheet">
+						<br><br>
+			
+			
+						<div class="container" id="h2">
+							<h2><strong>Leaving Certificate</strong></h2>
+						</div>
+						<label for="certificateUpload">Upload Leaving Certificate : </label>
+						<input type="file" name="Leaving Certificate">
+						<br><br>
+			
+						<div class="container" id="addStudSubmit">
+							<button type="submit">Submit</button>
+						</div>
+					</div>
+				</div>
+	
+			</form>
+		</div>
+	</div>
+<!-- ---------------------------------------------------Student Profile Form--------------------------------------------------  -->
+	<div id="StudProfForm">
+		<div class="container" id="StudProfFormh1">
+			<h1>Add Student Details</h1>
+		</div>
+		
+		<div class="container" id="StudProfFromContainer">
+			<form action="E:\Personal\projects\CMSP\templates\students\studentProfileMain.html" method="post">
+		
+				<label for="Field">Field</label>
+				<select name="field" id="field">
+					<option value="science">Science</option>
+					<option value="commerce">Commerce</option>
+					<option value="Arts">Arts</option>
+				</select>
+		
+				<br><br>
+		
+				<label for="class">Class</label>
+				<select name="class" id="class">
+					<option value="fy">First Year</option>
+					<option value="sy">Second Year</option>
+				</select>
+		
+				<br><br>
+		
+				<label for="division">Division</label>
+				<select name="division" id="division">
+					<option value="A">A</option>
+					<option value="B">B</option>
+				</select>
+		
+				<br><br>
+		
+				<label for="RollNo">Roll No : </label>
+				<input type="number" name="rollno" id="rollno">
+		
+				<br><br>
+		
+				<button type="submit">Get Profile</button>
+		
+			</form>
+		</div>
+	</div>
+
+<!-- ----------------------------------------------------------  -->
+
+</body>
+
+</html>

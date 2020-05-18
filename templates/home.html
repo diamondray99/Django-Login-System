@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block Title %}
+    Home
+{% endblock %}
+
+
+{% block MainBodyContent %}
+    <a class="btn btn-danger" href="{% url 'RegisterView' %}">Register</a>
+    <a class="btn btn-success" href="{% url 'login' %}">Login</a>
+{% endblock %}
+

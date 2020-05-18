@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block Title %}
+    Login
+{% endblock %}
+
+{% block ExtraCSS %}
+<style>
+    body{
+		color: #fff;
+		background: #63738a;
+		font-family: 'Roboto', sans-serif;
+	}
+    .login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: lightpink;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    h2{
+        color: #0000ff;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .pull-right{
+        color: #5cb85c;
+    }
+    .pull-left{
+        color: #636363;
+    }
+    #register{
+        color: #ffffff;
+    }
+</style>
+{% endblock %}
+
+{% block MainBodyContent %}
+    <div class="login-form">
+        <form method="POST">
+            {% csrf_token %}
+            <h2 class="text-center">Log in</h2>
+            {{ form|crispy }}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            </div>
+            <div class="clearfix">
+                <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                <a href="{% url 'password_reset' %}" class="pull-right">Forgot Password?</a>
+            </div>
+        </form>
+        <p class="text-center"><a href="{% url 'RegisterView' %}" id="register">Create an Account</a></p>
+    </div>
+{% endblock %}

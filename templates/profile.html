@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block MainBodyContent %}
+
+    <div class="container-fluid">
+
+        <h3>Profile</h3>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert-danger alert={{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %} 
+
+
+        <div class="container">
+            <div>
+                <img src="{{ user.profile.profile_image.url }}">
+            </div>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p><strong>Username : </strong>{{ user.username }}</p>
+            <p><strong>Email : </strong>{{ user.email }}</p>
+            <p><strong>Bio : </strong>{{ user.profile.bio }}</p>
+            <p><strong>Phone Number : </strong>{{ user.profile.phone_number }}</p>
+            <p><strong>Birth Date : </strong>{{ user.profile.birth_date }}</p>
+
+            <a class="btn btn-success" href="{% url 'ProfileUpdateView' %}">Update Profile</a>
+            <a class="btn btn-primary" href="{% url 'DashboardView' %}">Home</a>
+
+        </div>
+
+    </div>
+{% endblock %}
